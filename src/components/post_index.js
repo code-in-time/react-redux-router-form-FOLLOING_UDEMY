@@ -9,8 +9,15 @@ class PostsIndex extends Component {
 
     renderPosts() {
         let s =[];
-        for (const prop in this.props.posts) {
-            s.push(<li className="list-group-item" key={this.props.posts[prop].id}>{this.props.posts[prop].title}</li>);
+        for (const i in this.props.posts) {
+            const linkURL = '/post/'+this.props.posts[i].id;
+            s.push(
+                <li className="list-group-item" key={this.props.posts[i].id}>
+                    title: {this.props.posts[i].title} |
+                    id: {this.props.posts[i].id} |
+                    <Link to={linkURL} className="btn btn-primary">goTO</Link>
+                </li>
+            );
         }
 
         return s;

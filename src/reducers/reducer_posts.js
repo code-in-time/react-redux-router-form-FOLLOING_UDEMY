@@ -1,4 +1,4 @@
-import {FETCH_POSTS, FETCH_POST} from '../actions';
+import {FETCH_POSTS, FETCH_POST, DELETE_POST} from '../actions';
 import _ from 'lodash';
 
 export default function(state = {}, action) {
@@ -11,6 +11,11 @@ export default function(state = {}, action) {
             const post = action.payload.data;
 
             return {...state, [post.id]:post }
+
+        case DELETE_POST:
+
+        return {...state}
+
 
     default: 
         return state
