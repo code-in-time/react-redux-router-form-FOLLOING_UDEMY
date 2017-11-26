@@ -10,7 +10,15 @@ class PostsIndex extends Component {
     renderPosts() {
         let s =[];
         for (const prop in this.props.posts) {
-            s.push(<li className="list-group-item" key={this.props.posts[prop].id}>{this.props.posts[prop].title}</li>);
+            const url = '/post/'+this.props.posts[prop].id;
+            s.push(
+                
+                    <li className="list-group-item" key={this.props.posts[prop].id}>
+                        <Link to={url}>
+                            {this.props.posts[prop].title}
+                        </Link>
+                    </li>
+            );
         }
 
         return s;
