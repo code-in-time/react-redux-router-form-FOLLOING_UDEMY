@@ -8,9 +8,16 @@ export default function(state = {}, action) {
 
         case FETCH_POST:
 
-            const post = action.payload.data;
-
-            return {...state, [post.id]:post }
+            // Check for payload
+            if  (action.payload) {
+                
+                const post = action.payload.data;
+                return {...state, [post.id]:post }
+            }
+            
+            // No payload data.
+            // Return the same state.
+            return {...state}
 
         case DELETE_POST:
 

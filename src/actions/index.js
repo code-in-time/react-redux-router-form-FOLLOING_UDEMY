@@ -8,7 +8,7 @@ export const DELETE_POST = 'DELETE_POST';
 
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 //const API_KEY = 'cvbnmcvbnmcvbnmcvbnm';
-const API_KEY = 'PAPERCLIP1234' 
+const API_KEY = 'PAPERCLIP1234a' 
 
 
 export function  fetchPosts() {
@@ -20,8 +20,10 @@ export function  fetchPosts() {
     };
 }
 
-export function  fetchPost(id) {
-    const request = axios.get(`${ROOT_URL}/posts/${id}?key=${API_KEY}`);
+export function  fetchPost(id,callbackError) {
+    const request = axios.get(`${ROOT_URL}/posts/${id}?key=${API_KEY}`)
+
+        .catch((reason) => callbackError(reason));
 
     return {
         type: FETCH_POST,

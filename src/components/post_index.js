@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 
 
 class PostsIndex extends Component {
+    componentWillMount () {
+        
+    }
 
     renderPosts() {
         let s =[];
